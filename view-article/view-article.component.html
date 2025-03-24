@@ -1,0 +1,20 @@
+<div class="article-container">
+  <!-- Back Button -->
+  <button class="back-btn" routerLink="/">
+    ← Back to Home
+  </button>
+
+  <!-- Article Header -->
+  <div class="article-header">
+    <h1 class="article-title">{{ article.title }}</h1>
+    <h2 class="article-subheading">{{ article.subheading }}</h2>
+    <div class="article-meta">
+      <span class="author-name">{{ article.authorName }}</span>
+    </div>
+  </div>
+
+  <!-- Article Content -->
+  <div class="article-content">
+    <p>{{ article.content }}</p>
+  </div>
+</div>

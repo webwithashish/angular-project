@@ -1,0 +1,54 @@
+<div class="login-container">
+  <button class="back-btn" routerLink="/">
+    ← Back to Home
+  </button>
+  <h1>Welcome Back</h1>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email"
+             id="email"
+             name="email"
+             required
+             email
+             #emailField="ngModel"
+             ngModel
+             placeholder="Enter your email" />
+      <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="error-message">
+        <div *ngIf="emailField.errors?.['required']">Email is required.</div>
+        <div *ngIf="emailField.errors?.['email']">Please enter a valid email.</div>
+      </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password"
+             id="password"
+             name="password"
+             ngModel
+             required
+             minlength="6"
+             #passwordField="ngModel"
+             placeholder="Enter your password" />
+      <div *ngIf="passwordField.invalid && (passwordField.dirty || passwordField.touched)" class="error-message">
+        <div *ngIf="passwordField.errors?.['required']">Password is required.</div>
+        <div *ngIf="passwordField.errors?.['minlength']">Password must be at least 6 characters.</div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="loginForm.invalid" class="btn">Login</button>
+
+    <!-- Forgot Password Link -->
+    <div class="forgot-password">
+      <a href="#">Forgot Password?</a>
+    </div>
+
+    <!-- Sign Up Link -->
+    <div class="signup-link">
+      Don't have an account? <a routerLink="/register">Sign Up</a>
+    </div>
+  </form>
+</div>

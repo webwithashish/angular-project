@@ -1,0 +1,111 @@
+/* Container */
+.article-form-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  color: #2d3436;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.6rem;
+  color: #2d3436;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236c5ce7'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+}
+
+/* Button */
+.submit-btn {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.9), rgba(77, 55, 244, 0.9));
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+  .submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(77, 55, 244, 0.9), rgba(108, 92, 231, 0.9));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+  }
+
+  .submit-btn:disabled {
+    background: #e0e0e0;
+    cursor: not-allowed;
+  }
+
+/* Character Count */
+.char-count {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+  .char-count.invalid {
+    color: #ff7675;
+  }
+
+/* Error Messages */
+.error-message {
+  color: #ff7675;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .article-form-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}

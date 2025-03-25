@@ -8,7 +8,7 @@
       <input type="text"
              id="title"
              name="title"
-             [(ngModel)]="title"
+             ngModel
              required
              minlength="10"
              #titleInput="ngModel"
@@ -25,7 +25,7 @@
       <input type="text"
              id="subheading"
              name="subheading"
-             [(ngModel)]="subheading"
+             ngModel
              required
              #subheadingInput="ngModel"
              placeholder="Brief article summary">
@@ -39,7 +39,7 @@
       <label for="category">Category</label>
       <select id="category"
               name="category"
-              [(ngModel)]="category"
+              ngModel
               required
               #categorySelect="ngModel">
         <option value="" disabled>Select category</option>
@@ -55,10 +55,11 @@
       <label for="content">Article Content</label>
       <textarea id="content"
                 name="content"
-                [(ngModel)]="content"
+                
                 required
                 minlength="100"
                 #contentTextarea="ngModel"
+                ngModel
                 rows="8"
                 placeholder="Write your article content here..."></textarea>
       <div *ngIf="contentTextarea.invalid && (contentTextarea.dirty || contentTextarea.touched)" class="error-message">
@@ -66,7 +67,7 @@
         <div *ngIf="contentTextarea.errors?.['minlength']">Minimum 100 characters</div>
       </div>
       <div class="char-count" [class.invalid]="contentTextarea.errors?.['minlength']">
-        {{ content?.length || 0 }}/100 characters
+          
       </div>
     </div>
 

@@ -124,12 +124,26 @@
 
     <!-- Profile Picture URL -->
     <div class="form-group">
-      <label for="profilePicture">Profile Picture URL</label>
-      <input type="url"
-             id="profilePicture"
-             name="profilePicture"
-             ngModel
-             #profilePicture="ngModel" />
+      <label>Profile Picture</label>
+      <div class="image-upload-container"
+           (drop)="onDrop($event)"
+           (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)"
+           [class.dragging]="isDragging">
+
+        <div *ngIf="!previewUrl" class="upload-area">
+          <input type="file" id="profilePic" (change)="handleFileInput($event)" accept="image/*" hidden>
+          <label for="profilePic" class="upload-label">
+            <div class="upload-icon">📁</div>
+            <p>Drag & drop image here or click to browse</p>
+          </label>
+        </div>
+
+        <div *ngIf="previewUrl" class="image-preview">
+          <img [src]="previewUrl" alt="Profile Preview">
+          <button type="button" class="btn-change" (click)="previewUrl = null">Change Image</button>
+        </div>
+      </div>
     </div>
 
     <!-- Role -->

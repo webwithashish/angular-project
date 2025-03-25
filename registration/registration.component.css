@@ -95,3 +95,61 @@ textarea {
     cursor: not-allowed;
     box-shadow: none;
   }
+/* Image Upload Styles */
+.image-upload-container {
+  border: 2px dashed rgba(108, 92, 231, 0.3);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+  .image-upload-container.dragging {
+    border-color: #6c5ce7;
+    background: rgba(108, 92, 231, 0.05);
+  }
+
+.upload-area {
+  cursor: pointer;
+}
+
+.upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 2.5rem;
+}
+
+.image-preview {
+  position: relative;
+}
+
+  .image-preview img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(108, 92, 231, 0.3);
+  }
+
+.btn-change {
+  display: block;
+  margin: 1rem auto 0;
+  background: none;
+  border: none;
+  color: #6c5ce7;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+  .btn-change:hover {
+    color: #513ced;
+  }

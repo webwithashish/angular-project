@@ -1,0 +1,35 @@
+
+<div class="approval-container">
+  <h1>Articles Pending Approval</h1>
+
+  <div *ngIf="pendingArticles.length === 0" class="no-articles">
+    <p>No articles pending approval</p>
+  </div>
+
+  <div *ngFor="let article of pendingArticles" class="article-card">
+    <div class="article-header">
+      <h2>{{ article.title }}</h2>
+      <h3>{{ article.subheading }}</h3>
+      <div class="article-meta">
+        <span class="author">{{ article.author }}</span>
+        <span class="category">{{ article.category }}</span>
+        <span class="date">{{ article.submittedDate | date:'mediumDate' }}</span>
+      </div>
+    </div>
+
+    <div class="article-content">
+      <div  class="full-content">
+        <p>{{ article.content }}</p>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn-publish" (click)="publishArticle(article.id)">
+        Publish Article
+      </button>
+      <button class="btn-reject" disabled (click)="rejectArticle(article.id)">
+        Reject
+      </button>
+    </div>
+  </div>
+</div>

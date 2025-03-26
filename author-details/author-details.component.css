@@ -203,3 +203,104 @@
   transform: none;
   background: rgba(255, 255, 255, 0.05);
 }
+
+
+
+
+
+
+
+
+
+/* Compact Author Profile Styles */
+.author-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 0.85rem;
+  padding: 0.25rem 0;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+}
+
+.author-profile {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.profile-pic {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 1.3rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.detail-item {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  font-weight: 500;
+  min-width: 80px;
+  color: #555;
+}
+
+.value {
+  color: #333;
+}
+
+.bio {
+  margin: 1rem 0;
+}
+
+.bio h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.25rem;
+}
+
+.bio p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.social-media h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.25rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.social-icon {
+  font-size: 0.9rem;
+}

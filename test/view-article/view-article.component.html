@@ -1,0 +1,50 @@
+<div class="article-container">
+  <!-- Back Button -->
+  <button class="back-button" routerLink="/home">
+    &larr; Back to Articles
+  </button>
+
+  <!-- Article Content -->
+  <div class="article-content">
+    <h1>{{ article.title }}</h1>
+    <h2>{{ article.subheading }}</h2>
+
+    <!-- Author Section (Clickable) -->
+    <div class="author-section" (click)="navigateToAuthor()">
+      <img [src]="author.profilePic" alt="Author" class="author-pic">
+      <span class="author-name">{{ author.name }}</span>
+      <span class="article-date">{{ article.publishedDate | date:'MMMM d, y' }}</span>
+    </div>
+
+    <!-- Article Body -->
+    <div class="article-body">
+      <p>{{ article.content }}</p>
+    </div>
+
+    <!-- Article Actions -->
+    <div class="article-actions">
+      <div class="action-group">
+        <button class="icon-button" (click)="article.likes = article.likes + 1">
+          <span class="icon">👍</span> {{ article.likes }}
+        </button>
+        <button class="icon-button" (click)="toggleSave()">
+          <span class="icon">{{ article.saved ? '🔖' : '📑' }}</span>
+          {{ article.saved ? 'Saved' : 'Save' }}
+        </button>
+      </div>
+
+      <div class="rating">
+        <span *ngFor="let star of [1,2,3,4,5]"
+              (click)="rateArticle(star)"
+              [class.active]="star <= article.rating">★</span>
+      </div>
+
+      <div class="share-buttons">
+        <span class="share-icon">📤 Share</span>
+        <span class="social-icon">🐦</span>
+        <span class="social-icon">📘</span>
+        <span class="social-icon">📸</span>
+      </div>
+    </div>
+  </div>
+</div>

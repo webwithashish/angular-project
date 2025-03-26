@@ -1,0 +1,44 @@
+<div class="author-profile-container">
+  <!-- Back Button -->
+  <button class="back-button" >
+    &larr; Back to Article
+  </button>
+
+  <!-- Profile Header -->
+  <div class="profile-header">
+    <div class="profile-picture">
+      <img [src]="authorData.profilePicture" alt="Author Profile Picture">
+    </div>
+    <div class="profile-info">
+      <h1>{{ authorData.name }}</h1>
+      <p class="experience">{{ authorData.experience }}</p>
+      <p class="email">{{ authorData.email }}</p>
+      <p class="contact">Contact: {{ authorData.contactNumber }}</p>
+    </div>
+  </div>
+
+  <!-- Bio Section -->
+  <div class="profile-section">
+    <h2>About</h2>
+    <p class="bio">{{ authorData.bio }}</p>
+  </div>
+
+  <!-- Social Media Section -->
+  <div class="profile-section">
+    <h2>Social Media</h2>
+    <div class="social-media-display">
+      <div class="social-item">
+        <span class="social-label">Twitter:</span>
+        <span class="social-handle">{{ authorData.socialMedia.twitter }}</span>
+      </div>
+      <div class="social-item">
+        <span class="social-label">Facebook:</span>
+        <span class="social-handle">{{ authorData.socialMedia.facebook }}</span>
+      </div>
+      <div class="social-item">
+        <span class="social-label">Instagram:</span>
+        <span class="social-handle">{{ authorData.socialMedia.instagram }}</span>
+      </div>
+    </div>
+  </div>
+</div>

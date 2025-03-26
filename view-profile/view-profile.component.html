@@ -1,0 +1,128 @@
+<div class="profile-container">
+  <!-- Back Button -->
+  <button class="back-button" routerLink="/home">
+    &larr; Back to Home
+  </button>
+
+  <!-- Profile Card -->
+  <div class="profile-card">
+    <!-- Profile Picture -->
+    <div class="profile-picture">
+      <img [src]="profileImage" alt="Profile Picture">
+    </div>
+
+    <!-- View Mode -->
+    <div *ngIf="!isEditMode" class="profile-details">
+      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+
+      <div class="detail-item">
+        <span class="label">Email:</span>
+        <span class="value">{{ user.email }}</span>
+      </div>
+
+      <div class="detail-item">
+        <span class="label">Gender:</span>
+        <span class="value">{{ user.gender }}</span>
+      </div>
+
+      <div class="detail-item">
+        <span class="label">Date of Birth:</span>
+        <span class="value">{{ user.dob | date:'longDate' }}</span>
+      </div>
+
+      <div class="detail-item">
+        <span class="label">Contact:</span>
+        <span class="value">{{ user.contact }}</span>
+      </div>
+
+      <div class="detail-item">
+        <span class="label">Address:</span>
+        <span class="value">{{ user.address }}</span>
+      </div>
+
+      <button class="edit-button" (click)="toggleEditMode()">
+        Edit Details
+      </button>
+    </div>
+
+    <!-- Edit Mode -->
+    <form *ngIf="isEditMode" #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)" class="edit-form">
+      <!-- Non-editable fields (display only) -->
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [value]="user.firstName + ' ' + user.lastName" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [value]="user.email" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <input type="text" [value]="user.gender" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="text" [value]="(user.dob | date:'longDate')" readonly>
+      </div>
+
+      <!-- Editable fields -->
+      <div class="form-group">
+        <label>Contact Number*</label>
+        <input type="text"
+               name="contact"
+               [(ngModel)]="user.contact"
+               pattern="[0-9]{10}"
+               #contact="ngModel"
+               required>
+        <small *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="error">
+          Must be 10 digits
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Address*</label>
+        <textarea name="address"
+                  [(ngModel)]="user.address"
+                  #address="ngModel"
+                  required
+                  rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>New Password</label>
+        <input type="password"
+               name="password"
+               [(ngModel)]="user.password"
+               minlength="8"
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$"
+               #password="ngModel">
+        <small *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
+          Must contain 1 uppercase, 1 lowercase, and 1 number (min 8 chars)
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password"
+               name="confirmPassword"
+               [(ngModel)]="user.confirmPassword"
+               #confirmPassword="ngModel">
+        <small *ngIf="user.password && user.password !== user.confirmPassword" class="error">
+          Passwords don't match
+        </small>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-button" (click)="toggleEditMode()">
+          Cancel
+        </button>
+        <button type="submit" class="save-button" [disabled]="profileForm.invalid">
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
